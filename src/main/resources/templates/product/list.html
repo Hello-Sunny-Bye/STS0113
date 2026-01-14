@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:replace="include/top :: top"></div>
+<section>
+<br>
+<div align="center">
+   <h1> 자료 목록 보기 </h1> 
+  <table border =1>
+  <tr>
+  <td>번호</td>
+  <td>상품코드</td>
+  <td>상품이름</td>
+  <td>상품가격</td>
+  <td>상품수량</td>
+  <td>상품이미지</td> 
+  <td>등록날짜</td>
+  <td>상품당담자</td>
+
+  </tr>
+ <tr th:each="m : ${li}">
+  <td th:text="${m.idx}"></td>
+  <td th:text="${m.pid}"></td>
+  <td><a th:href="@{/product/edit.do(idx=${m.idx})}" th:text="${m.pnam}"> </a></td>
+  <td th:text="${m.pprice}"></td>
+  <td th:text="${m.quantity}"> </td>
+   <td> <img th:src="@{https://s3-260105.s3.ap-northeast-2.amazonaws.com/{file}(file=${m.pimgname})}" width=30 height=30></td> 
+  
+    <td th:text="${m.today}"> </td>
+      <td th:text="${m.padmin}"> </td>
+ </tr>
+</table> 
+  <form th:action ="@{/product/list.do}">
+
+<select name=ch1>
+<option value="pid">상품코드 </option>
+<option value="pnam">상품이름 </option>
+
+</select>
+<input type=text name=ch2>
+<input type=submit value="검색하기">
+
+
+
+</form>  
+
+</div>
+
+</section>
+<div th:replace="include/bottom::footer"></div>
+
+</body>
+</html>

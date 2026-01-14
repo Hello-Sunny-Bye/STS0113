@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:replace="include/top :: top"></div>
+<section>
+<br>
+<div align="center">
+   <h1> 로그인 </h1>
+   <!-- form에 엑션이 없어야함  -->
+   <!-- security Config에서 관리 -->
+<form  method="POST">
+
+  <table border =1>
+  <tr>
+  <td>아이디</td>
+  <td><input type=text  name="username" size=15> </td></tr>
+  <tr>
+   <td> 비밀번호</td> 
+   <td><input type=password  name="password" size=25>  </td>
+  </tr>
+   <tr> <td colspan=2  align="center" > 
+      <input type=submit  value="로그인">  
+      </td>
+</table> 
+</form>
+</div>
+</section>
+<div th:replace="include/bottom::footer"></div>
+
+</body>
+</html>
